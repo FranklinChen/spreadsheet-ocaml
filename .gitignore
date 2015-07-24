@@ -1,0 +1,13 @@
+_build
+*.native
+*.byte
+*.docdir
+
+setup.data
+setup.log
+META
+*.mldylib
+*.mllib
+*.odocl
+_tags
+myocamlbuild.ml
