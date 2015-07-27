@@ -6,9 +6,7 @@ install:
   - export OPAMYES=1
   - opam init
   - eval `opam config env`
-  - opam install oasis ounit
+  - opam install ounit
 script:
-  - oasis setup
   - ocaml setup.ml -configure --enable-tests
-  - make
   - make test

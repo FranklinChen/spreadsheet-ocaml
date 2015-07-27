@@ -5,9 +5,3 @@ _build
 
 setup.data
 setup.log
-META
-*.mldylib
-*.mllib
-*.odocl
-_tags
-myocamlbuild.ml

@@ -8,24 +8,13 @@ This is a verbatim copy of the highly imperative dataflow system implemented in 
 
 First, install OCaml and Opam.
 
-(I have not yet figured out how to avoid the user having to install Oasis and oUnit manually with Opam.)
-
-Install Oasis and oUnit:
-
 ```console
-$ opam install oasis ounit
+$ opam install ounit
 ```
 
-Configure the build.
+Build the library and also run the tests.
 
 ```console
-$ oasis setup
 $ ocaml setup.ml -configure --enable-tests
-```
-
-Build.
-
-```console
-$ make
 $ make test
 ```
