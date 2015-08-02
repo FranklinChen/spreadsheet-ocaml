@@ -24,3 +24,4 @@ $ make test
 - [OCaml](https://github.com/FranklinChen/spreadsheet-ocaml)
 - [Scala](https://github.com/FranklinChen/spreadsheet-scala)
 - [Haskell](https://github.com/FranklinChen/spreadsheet-haskell)
+- [Ruby](https://github.com/FranklinChen/spreadsheet-ruby)
