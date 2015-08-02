@@ -18,3 +18,9 @@ Build the library and also run the tests.
 $ ocaml setup.ml -configure --enable-tests
 $ make test
 ```
+
+## Compare different implementations
+
+- [OCaml](https://github.com/FranklinChen/spreadsheet-ocaml)
+- [Scala](https://github.com/FranklinChen/spreadsheet-scala)
+- [Haskell](https://github.com/FranklinChen/spreadsheet-haskell)
