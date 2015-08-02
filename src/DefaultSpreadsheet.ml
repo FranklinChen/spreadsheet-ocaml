@@ -13,7 +13,7 @@ module Cell : Spreadsheet.CELL = struct
 
   let rec union xs ys =
     match xs with
-    | [] -> []
+    | [] -> ys
     | x :: xs' ->
       if List.exists (fun y -> id x = id y) ys then
         union xs' ys
@@ -27,7 +27,7 @@ module Cell : Spreadsheet.CELL = struct
     (b, union cs ds)
 
   let r = ref 0
-  let new_id () = incr r; !r 
+  let new_id () = incr r; !r
 
   let cell exp () =
     let n = new_id() in
@@ -55,18 +55,16 @@ module Cell : Spreadsheet.CELL = struct
 
   let rec invalidate (Pack c) =
     let os = c.observers in
-    let rs = c.reads in 
+    let rs = c.reads in
     c.observers <- [];
     c.value <- None;
     c.reads <- [];
     List.iter (remove_observer (Pack c)) rs;
     List.iter invalidate os
-    
+
   let set c exp =
     c.code <- exp;
     invalidate (Pack c)
 
   let run cmd = fst (cmd ())
 end
-
-  
