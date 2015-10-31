@@ -1,0 +1,27 @@
+opam-version: "1.2"
+name: "Acme-Spreadsheet"
+version: "0.1"
+maintainer: "Franklin Chen <franklinchen@franklinchen.com>"
+authors: [ "Franklin Chen <franklinchen@franklinchen.com>" ]
+license: "BSD-3-clause"
+homepage: "https://github.com/FranklinChen/spreadsheet-ocaml"
+dev-repo: "https://github.com/FranklinChen/spreadsheet-ocaml.git"
+bug-reports: "https://github.com/FranklinChen/spreadsheet-ocaml/issues"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+install: ["ocaml" "setup.ml" "-install"]
+remove: [
+  ["ocamlfind" "remove" "acme_spreadsheet"]
+]
+build-test: [
+  ["ocaml" "setup.ml" "-configure" "--enable-tests"]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-test"]
+]
+build-doc: [ "ocaml" "setup.ml" "-doc" ]
+depends: [
+  "ocamlfind" {build}
+  "ounit" {test}
+]
