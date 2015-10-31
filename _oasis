@@ -1,7 +1,8 @@
-Name: Spreadsheet
+Name: Acme-Spreadsheet
 Version: 0.1
 Synopsis: Spreadsheet demo
 Authors: Franklin Chen <franklinchen@franklinchen.com>
+Maintainers: Franklin Chen <franklinchen@franklinchen.com>
 License: BSD-3-clause
 
 Description: Spreadsheet demo
@@ -11,12 +12,12 @@ OASISFormat: 0.4
 BuildTools: ocamlbuild
 Plugins: META (0.4), DevFiles (0.4)
 
-Library "spreadsheet"
+Library "acme_spreadsheet"
   Path: src
   Modules: Spreadsheet, DefaultSpreadsheet
 
 AlphaFeatures: ocamlbuild_more_args
-Document "spreadsheet_api"
+Document "acme_spreadsheet_api"
   Type: ocamlbuild (0.4)
   BuildTools: ocamldoc
 
@@ -24,7 +25,7 @@ Document "spreadsheet_api"
   XOCamlbuildPath: .
   XOCamlbuildExtraArgs:
     "-docflags '-colorize-code -short-functors -charset utf-8'"
-  XOCamlbuildLibraries: spreadsheet
+  XOCamlbuildLibraries: acme_spreadsheet
 
 SourceRepository master
   Type: git
@@ -32,16 +33,16 @@ SourceRepository master
   Branch: master
   Browser: https://github.com/FranklinChen/spreadsheet-ocaml
 
-Executable "test_spreadsheet"
+Executable "test_acme_spreadsheet"
   Build$: flag(tests)
   Path: test
   MainIs: Test.ml
   CompiledObject: best
   Install: false
-  BuildDepends: spreadsheet, oUnit
+  BuildDepends: acme_spreadsheet, oUnit
 
-Test "test_spreadsheet"
+Test "test_acme_spreadsheet"
   Run$: flag(tests)
-  TestTools: test_spreadsheet
-  Command: $test_spreadsheet
+  TestTools: test_acme_spreadsheet
+  Command: $test_acme_spreadsheet
   WorkingDirectory: test

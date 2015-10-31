@@ -1,11 +1,11 @@
 # OASIS_START
-# DO NOT EDIT (digest: 99d9c08ac75751d9e81fa168485c2fd2)
+# DO NOT EDIT (digest: 7fb2b3cf980b5a17e7760e183a84013d)
 version = "0.1"
 description = "Spreadsheet demo"
-archive(byte) = "spreadsheet.cma"
-archive(byte, plugin) = "spreadsheet.cma"
-archive(native) = "spreadsheet.cmxa"
-archive(native, plugin) = "spreadsheet.cmxs"
-exists_if = "spreadsheet.cma"
+archive(byte) = "acme_spreadsheet.cma"
+archive(byte, plugin) = "acme_spreadsheet.cma"
+archive(native) = "acme_spreadsheet.cmxa"
+archive(native, plugin) = "acme_spreadsheet.cmxs"
+exists_if = "acme_spreadsheet.cma"
 # OASIS_STOP
 
