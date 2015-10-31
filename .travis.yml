@@ -1,12 +1,12 @@
 language: c
-install:
-  - echo "yes" | sudo add-apt-repository ppa:avsm/ocaml42+opam12
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq ocaml ocaml-native-compilers opam
-  - export OPAMYES=1
-  - opam init
-  - eval `opam config env`
-  - opam install ounit
-script:
-  - ocaml setup.ml -configure --enable-tests
-  - make test
+sudo: required
+install: wget https://raw.githubusercontent.com/ocaml/ocaml-travisci-skeleton/master/.travis-opam.sh
+script: bash -ex .travis-opam.sh
+env:
+#  - OCAML_VERSION=3.12
+#  - OCAML_VERSION=4.00
+#  - OCAML_VERSION=4.01
+  - OCAML_VERSION=4.02
+os:
+  - linux
+  - osx
