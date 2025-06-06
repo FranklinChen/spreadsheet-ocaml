@@ -1,7 +1,2 @@
-_build
-*.native
-*.byte
-*.docdir
-
-setup.data
-setup.log
+_build/
+_opam/
