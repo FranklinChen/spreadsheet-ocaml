@@ -5,8 +5,7 @@ let test_cycle () =
   reset ();
   let a = run (cell (return 1)) in
   set a (get a >>= fun aValue -> return (aValue + 1));
-  Alcotest.check_raises "raises" Stack_overflow (fun () ->
-      ignore (run (get a)))
+  Alcotest.check_raises "raises" Stack_overflow (fun () -> ignore (run (get a)))
 
 (* Test that the `set` function correctly updates the value of a cell even if the cell has not been evaluated yet. *)
 let test_set_unevaluated () =
@@ -43,7 +42,8 @@ let test_diamond_dependency () =
   let d =
     run
       (cell
-         (get b >>= fun bv -> get c >>= fun cv -> return (bv + cv)))
+         ( get b >>= fun bv ->
+           get c >>= fun cv -> return (bv + cv) ))
   in
   Alcotest.(check int) "initial" 112 (run (get d));
   set a (return 2);
@@ -58,9 +58,9 @@ let test_dynamic_dependency_change () =
   let c =
     run
       (cell
-         (get flag >>= fun f ->
-          if f then get x >>= fun v -> return v
-          else get y >>= fun v -> return v))
+         ( get flag >>= fun f ->
+           if f then get x >>= fun v -> return v
+           else get y >>= fun v -> return v ))
   in
   Alcotest.(check int) "reads x" 10 (run (get c));
   set flag (return false);
@@ -74,7 +74,9 @@ let test_read_same_cell_twice () =
   let a = run (cell (return 5)) in
   let b =
     run
-      (cell (get a >>= fun x -> get a >>= fun y -> return (x + y)))
+      (cell
+         ( get a >>= fun x ->
+           get a >>= fun y -> return (x + y) ))
   in
   Alcotest.(check int) "double read" 10 (run (get b));
   set a (return 3);
