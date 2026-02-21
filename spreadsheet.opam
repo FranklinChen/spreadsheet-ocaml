@@ -10,7 +10,7 @@ doc: "https://github.com/FranklinChen/spreadsheet-ocaml"
 bug-reports: "https://github.com/FranklinChen/spreadsheet-ocaml/issues"
 depends: [
   "dune" {>= "3.19"}
-  "ocaml"
+  "ocamlformat" {with-dev-setup}
   "alcotest" {with-test}
   "odoc" {with-doc}
 ]

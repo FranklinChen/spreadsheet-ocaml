@@ -11,6 +11,8 @@ and ecell = Pack : 'a cell -> ecell
 
 let id (Pack c) = c.id
 
+(* Bug fix (commit 90c10c4): Neel's original base case was [] -> [], which
+   silently dropped the ys list. Corrected to [] -> ys. *)
 let rec union xs ys =
   match xs with
   | [] -> ys
@@ -63,3 +65,7 @@ let set c exp =
   invalidate (Pack c)
 
 let run cmd = fst (cmd ())
+
+(* Not part of Neel's original code. Added for test isolation: resets the
+   global ID counter so each test starts from a clean state. *)
+let reset () = r := 0

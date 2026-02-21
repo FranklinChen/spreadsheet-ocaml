@@ -1,3 +1,9 @@
 (test
  (name test_spreadsheet)
- (libraries alcotest spreadsheet))
+ (libraries alcotest spreadsheet)
+ (modules test_spreadsheet))
+
+(test
+ (name test_spreadsheet_extra)
+ (libraries alcotest spreadsheet)
+ (modules test_spreadsheet_extra))
